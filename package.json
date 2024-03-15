@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Dark0o/React-Shopping-Cart-UI/issues"
   },
-  "homepage": "https://github.com/Dark0o/React-Shopping-Cart-UI#readme"
+  "homepage": "https://github.com/Dark0o/React-Shopping-Cart-UI#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
