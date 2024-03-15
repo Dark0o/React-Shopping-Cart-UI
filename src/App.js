@@ -38,7 +38,7 @@ const App = () => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Navbar />
+      <Navbar title={data.article.title} />
       <ImageWithZoomIcon />
       <div>
         Testing heroku deploy <Button>Test Button</Button>

@@ -1,15 +1,21 @@
 import React from "react";
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, Toolbar, Typography, Stack, Box } from "@mui/material";
 import { styled } from "@mui/system";
+import SvgIcon from "@mui/material/SvgIcon";
+import FactsSoft from "../assets/icons/facts-soft.svg";
+import Favorite from "../assets/icons/favorite.svg";
+import Divider from "@mui/material/Divider";
+import Cart from "../assets/icons/cart.svg";
 
 const gray = "#E8E8E8";
+const gray2 = "#A7A7A7";
 
 const StyledAppBar = styled(AppBar)({
   top: "0",
-  position: "sticky", // or 'fixed' if you want it fixed even when there's no scroll
-  backgroundColor: "#ffffff", // change as per your design
-  color: "#000000", // change as per your design
-  zIndex: 1000, // Using the z-index value provided by the theme
+  position: "sticky",
+  backgroundColor: "#ffffff",
+  color: "#000000",
+  //zIndex: 1000,
   boxShadow: "none", // Remove the default box shadow
 });
 
@@ -17,12 +23,69 @@ const StyledToolbar = styled(Toolbar)({
   borderBottom: `1px solid ${gray}`,
 });
 
-const Navbar = () => {
+const iconStyle = {
+  width: "25px",
+  height: "25px",
+  color: gray2,
+};
+
+const cartBubbleStyle = {
+  position: "absolute",
+  top: 0,
+  right: 0,
+  backgroundColor: "red",
+  color: "white",
+  borderRadius: "50%",
+  width: "14px",
+  height: "14px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  fontSize: "8px",
+  fontWeight: "bold",
+};
+
+const CartWithBubble = () => {
+  const cartItemCount = 5;
+
+  return (
+    <Box style={{ position: "relative", display: "inline-block" }}>
+      <SvgIcon
+        component={Cart}
+        inheritViewBox
+        alt="Zoom Icon"
+        style={iconStyle}
+      />
+      {cartItemCount > 0 && <Box style={cartBubbleStyle}>{cartItemCount}</Box>}
+    </Box>
+  );
+};
+
+const Navbar = ({ title }) => {
   return (
     <StyledAppBar>
-      <StyledToolbar>
-        <Typography variant="h6">{"string"}</Typography>
-        {/* Add other navbar elements here */}
+      <StyledToolbar sx={{ justifyContent: "space-between" }}>
+        <Typography variant="h7" sx={{ color: "red" }}>
+          {title}
+        </Typography>
+
+        <Stack direction="row" spacing={1}>
+          <SvgIcon
+            component={Favorite}
+            inheritViewBox
+            alt="Zoom Icon"
+            style={iconStyle}
+          />
+          <SvgIcon
+            component={FactsSoft}
+            inheritViewBox
+            alt="Zoom Icon"
+            style={iconStyle}
+          />
+
+          <Divider orientation="vertical" style={{ height: "auto" }} />
+          <CartWithBubble />
+        </Stack>
       </StyledToolbar>
     </StyledAppBar>
   );
