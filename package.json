@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve",
-    "build": "webpack"
+    "build": "webpack serve --config ./webpack.config.js",
+    "start": "webpack serve --config ./webpack.config.js"
+  },
+  "engines": {
+    "node": "18.18.2",
+    "npm": "9.8.1"
   },
   "repository": {
     "type": "git",
