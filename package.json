@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack serve",
     "build": "webpack serve --config ./webpack.config.js",
-    "start": "webpack serve --config ./webpack.config.js"
+    "start": "webpack serve --config ./webpack.config.js",
+    "heroku-postbuild": "npm run build"
   },
   "engines": {
     "node": "18.18.2",

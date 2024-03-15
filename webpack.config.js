@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const port = process.env.PORT || 5000;
 
 module.exports = {
   mode: "development",
@@ -9,7 +10,8 @@ module.exports = {
     filename: "bundle.js",
   },
   devServer: {
-    port: "3000",
+    port: port,
+    allowedHosts: "all",
   },
   module: {
     rules: [
