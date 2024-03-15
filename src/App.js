@@ -1,5 +1,6 @@
 import React from "react";
-import Button from "@mui/material/Button";
+
+import { Stack, Button, Box } from "@mui/material";
 import fav from "./assets/icons/favorite.svg";
 import zoomIcon from "./assets/icons/zoom-in.svg";
 import SvgIcon from "@mui/material/SvgIcon";
@@ -8,6 +9,7 @@ import data from "./data/data.json";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import Navbar from "./components/Navbar";
+import ItemPreview from "./components/ItemPreview";
 
 const App = () => {
   console.log(zoomIcon);
@@ -39,6 +41,7 @@ const App = () => {
     <React.Fragment>
       <CssBaseline />
       <Navbar title={data.article.title} />
+      <ItemPreview />
       <ImageWithZoomIcon />
       <div>
         Testing heroku deploy <Button>Test Button</Button>

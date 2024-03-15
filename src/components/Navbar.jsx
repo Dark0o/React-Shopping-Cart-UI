@@ -83,7 +83,7 @@ const Navbar = ({ title }) => {
             style={iconStyle}
           />
 
-          <Divider orientation="vertical" style={{ height: "auto" }} />
+          <Divider orientation="vertical" flexItem />
           <CartWithBubble />
         </Stack>
       </StyledToolbar>
