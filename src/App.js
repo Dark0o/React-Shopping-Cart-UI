@@ -3,9 +3,11 @@ import Button from "@mui/material/Button";
 import fav from "./assets/icons/favorite.svg";
 import zoomIcon from "./assets/icons/zoom-in.svg";
 import SvgIcon from "@mui/material/SvgIcon";
+import data from "./data/data.json";
 
 const App = () => {
   console.log(zoomIcon);
+  console.log(data);
   const ImageWithZoomIcon = () => {
     return (
       <div style={{ position: "relative", display: "inline-block" }}>
