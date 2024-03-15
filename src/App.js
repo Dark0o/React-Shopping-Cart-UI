@@ -5,6 +5,10 @@ import zoomIcon from "./assets/icons/zoom-in.svg";
 import SvgIcon from "@mui/material/SvgIcon";
 import data from "./data/data.json";
 
+import CssBaseline from "@mui/material/CssBaseline";
+
+import Navbar from "./components/Navbar";
+
 const App = () => {
   console.log(zoomIcon);
   console.log(data);
@@ -32,12 +36,14 @@ const App = () => {
   };
 
   return (
-    <div>
+    <React.Fragment>
+      <CssBaseline />
+      <Navbar />
       <ImageWithZoomIcon />
       <div>
         Testing heroku deploy <Button>Test Button</Button>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
