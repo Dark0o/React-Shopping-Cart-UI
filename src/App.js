@@ -1,7 +1,7 @@
 import React from "react";
 
 const App = () => {
-  return <div>React</div>;
+  return <div>Testing heroku deploy</div>;
 };
 
 export default App;
