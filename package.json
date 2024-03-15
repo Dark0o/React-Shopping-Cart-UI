@@ -1,0 +1,20 @@
+{
+  "name": "React-Shopping-Cart-UI",
+  "version": "1.0.0",
+  "description": "Shopping cart view using React following provided design",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dark0o/React-Shopping-Cart-UI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dark0o/React-Shopping-Cart-UI/issues"
+  },
+  "homepage": "https://github.com/Dark0o/React-Shopping-Cart-UI#readme"
+}
