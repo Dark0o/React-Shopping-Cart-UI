@@ -5,9 +5,10 @@ const DataContext = createContext(null);
 
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState(jsonData);
+  const [isVisible, setIsVisible] = useState(true);
 
   return (
-    <DataContext.Provider value={{ data, setData }}>
+    <DataContext.Provider value={{ data, setData, isVisible, setIsVisible }}>
       {children}
     </DataContext.Provider>
   );
