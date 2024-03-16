@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { styled } from "@mui/system";
 
-import { TextField, Button, Box, Typography } from "@mui/material";
-import SvgIcon from "@mui/material/SvgIcon";
+import { TextField, Button, Box, Typography, SvgIcon } from "@mui/material";
+
 import Add from "../assets/icons/add.svg";
 
 // removes the up and down arrows from mui input type number

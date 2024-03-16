@@ -3,6 +3,8 @@ import { useData } from "../context/DataContext";
 
 import { Stack, Box, Typography } from "@mui/material";
 
+import Details from "./Details";
+
 const ItemDetails = () => {
   const { data } = useData();
   return (
@@ -11,6 +13,7 @@ const ItemDetails = () => {
       <Typography sx={{ marginTop: "10px" }}>
         {data.article.description_long}
       </Typography>
+      <Details />
     </Box>
   );
 };
