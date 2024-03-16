@@ -54,9 +54,7 @@ const cartBubbleStyle = {
   fontWeight: "bold",
 };
 
-const CartWithBubble = () => {
-  const cartItemCount = 5;
-
+const CartWithBubble = ({ cartItemCount }) => {
   return (
     <Box style={{ position: "relative", display: "inline-block" }}>
       <SvgIcon
@@ -97,7 +95,7 @@ const Navbar = () => {
           />
 
           <Divider orientation="vertical" flexItem />
-          <CartWithBubble />
+          <CartWithBubble cartItemCount={data.cart.items} />
         </Stack>
       </StyledToolbar>
     </StyledAppBar>

@@ -4,8 +4,9 @@ import { styled } from "@mui/system";
 import { TextField, Button, Box, Typography, SvgIcon } from "@mui/material";
 
 import Add from "../assets/icons/add.svg";
+import { useData } from "../context/DataContext";
 
-// removes the up and down arrows from mui input type number
+// removes the up and down arrows from mui input type number, colors the outline
 const Input = styled(TextField)({
   "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
     display: "none",
@@ -24,14 +25,26 @@ const Input = styled(TextField)({
 });
 
 const AddToCart = () => {
-  const [quantity, setQuantity] = useState(1);
+  const { data, addItemsToCart } = useData();
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const [quantity, setQuantity] = useState(data.article.minimum_order_quantity);
 
   const handleQuantityChange = (event) => {
-    setQuantity(event.target.value);
+    // parse the string to number in order to add to data correctly
+    const value =
+      event.target.value === "" ? "" : parseFloat(event.target.value);
+
+    //if value is empty string disable the button
+    if (value === "") {
+      setIsDisabled(true);
+    } else setIsDisabled(false);
+
+    setQuantity(value);
   };
 
   const handleAddToCart = () => {
-    console.log(`Added ${quantity} items to cart`);
+    addItemsToCart(quantity);
   };
 
   return (
@@ -54,6 +67,7 @@ const AddToCart = () => {
         units
       </Typography>
       <Button
+        disabled={isDisabled}
         variant="contained"
         onClick={handleAddToCart}
         startIcon={<SvgIcon component={Add} inheritViewBox alt="Add Icon" />}

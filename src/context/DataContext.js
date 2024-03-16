@@ -7,8 +7,23 @@ export const DataProvider = ({ children }) => {
   const [data, setData] = useState(jsonData);
   const [isVisible, setIsVisible] = useState(true);
 
+  const addItemsToCart = (numberOfItems) => {
+    setData((prevValue) => {
+      console.log(prevValue.cart);
+      return {
+        ...prevValue,
+        cart: {
+          ...prevValue.cart,
+          items: prevValue.cart.items + numberOfItems,
+        },
+      };
+    });
+  };
+
   return (
-    <DataContext.Provider value={{ data, setData, isVisible, setIsVisible }}>
+    <DataContext.Provider
+      value={{ data, setData, isVisible, setIsVisible, addItemsToCart }}
+    >
       {children}
     </DataContext.Provider>
   );
