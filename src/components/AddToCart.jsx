@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { styled } from "@mui/system";
 
-import { TextField, Button, Box } from "@mui/material";
+import { TextField, Button, Box, Typography } from "@mui/material";
+import SvgIcon from "@mui/material/SvgIcon";
+import Add from "../assets/icons/add.svg";
 
 // removes the up and down arrows from mui input type number
 const Input = styled(TextField)({
@@ -37,15 +39,24 @@ const AddToCart = () => {
         }}
         sx={{ width: "80px", marginRight: "10px" }}
       />
-      <span
+      <Typography
         style={{ marginRight: "5px", display: "flex", alignItems: "center" }}
       >
         units
-      </span>
+      </Typography>
       <Button
         variant="contained"
         onClick={handleAddToCart}
-        sx={{ height: "40px", backgroundColor: "red" }}
+        startIcon={<SvgIcon component={Add} inheritViewBox alt="Add Icon" />}
+        sx={{
+          height: "40px",
+          backgroundColor: "red",
+          boxShadow: "none",
+          "&:hover": {
+            backgroundColor: "#ff3333", // Hover background color
+            boxShadow: "none", // Remove box-shadow on hover
+          },
+        }}
       >
         Add to Cart
       </Button>

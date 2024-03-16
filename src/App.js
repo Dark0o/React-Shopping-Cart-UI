@@ -44,7 +44,7 @@ const App = () => {
         <CssBaseline />
         <Navbar />
         <ItemPreview />
-        <ImageWithZoomIcon />
+        {/* <ImageWithZoomIcon /> */}
         <div>
           Testing heroku deploy <Button>Test Button</Button>
         </div>
