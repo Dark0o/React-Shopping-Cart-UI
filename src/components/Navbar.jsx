@@ -14,6 +14,7 @@ import Favorite from "../assets/icons/favorite.svg";
 
 import Cart from "../assets/icons/cart.svg";
 import { useData } from "../context/DataContext";
+import AddToCart from "./AddToCart";
 
 const gray = "#E8E8E8";
 const gray2 = "#A7A7A7";
@@ -70,7 +71,8 @@ const CartWithBubble = () => {
 };
 
 const Navbar = () => {
-  const { data } = useData();
+  const { data, isVisible } = useData();
+
   console.log(data);
   return (
     <StyledAppBar>
@@ -79,7 +81,8 @@ const Navbar = () => {
           {data.article.title}
         </Typography>
 
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row" spacing={1} alignItems="center">
+          {!isVisible && <AddToCart />}
           <SvgIcon
             component={Favorite}
             inheritViewBox
