@@ -6,6 +6,8 @@ import Zoom from "../assets/icons/zoom-in.svg";
 import StarFilled from "../assets/icons/star-filled.svg";
 import { Stack, Box, Typography } from "@mui/material";
 
+import AddToCart from "./AddToCart";
+
 const smallImgPreviewStyle = {
   display: "flex",
   alignItems: "center",
@@ -117,12 +119,20 @@ const ItemPreview = () => {
         <Typography>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </Typography>
+
         <Box>
           <Typography>by Conntech GmbH</Typography>
         </Box>
+
         <Stack>
           <StarRating rating={3.2} />
         </Stack>
+
+        <Typography>
+          2598 EUR + 34,00 EUR shipping <br /> all prices incl. 10% taxes
+        </Typography>
+
+        <AddToCart />
       </Stack>
     </Stack>
   );
