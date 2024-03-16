@@ -11,6 +11,9 @@ import { Link } from "react-router-dom";
 import AddToCart from "./AddToCart";
 import { useData } from "../context/DataContext";
 
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 const smallImgPreviewStyle = {
   display: "flex",
   alignItems: "center",
@@ -81,6 +84,9 @@ const ItemPreview = () => {
 
   const targetRef = useRef(null);
 
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -108,88 +114,92 @@ const ItemPreview = () => {
 
   return (
     <Stack direction="row" spacing={2} sx={{ padding: "10px" }}>
-      {/* Preview Img */}
-      <Stack spacing={2}>
-        <Box style={smallImgPreviewStyle}>
+      <Stack direction={isSmallScreen ? "column" : "row"} spacing={1}>
+        {/* Preview Img */}
+        <Stack spacing={2} direction={isSmallScreen ? "row" : "column"}>
+          <Box style={smallImgPreviewStyle}>
+            <SvgIcon
+              component={Package}
+              inheritViewBox
+              alt="Package"
+              style={{ width: "50px", height: "50px" }}
+            />
+          </Box>
+          <Box style={smallImgPreviewStyle}>
+            <SvgIcon
+              component={Package}
+              inheritViewBox
+              alt="Package"
+              style={{ width: "50px", height: "50px" }}
+            />
+          </Box>
+        </Stack>
+
+        {/* Main Img */}
+        <Box style={largeImgPreviewStyle}>
           <SvgIcon
             component={Package}
             inheritViewBox
             alt="Package"
-            style={{ width: "50px", height: "50px" }}
+            style={packageIconStyle}
           />
+          <Box style={zoomIconBoxStyle}>
+            <SvgIcon
+              component={Zoom}
+              inheritViewBox
+              alt="Zoom Icon"
+              style={{ width: "30px", height: "30px" }}
+            />
+          </Box>
         </Box>
-        <Box style={smallImgPreviewStyle}>
-          <SvgIcon
-            component={Package}
-            inheritViewBox
-            alt="Package"
-            style={{ width: "50px", height: "50px" }}
-          />
-        </Box>
-      </Stack>
 
-      {/* Main Img */}
-      <Box style={largeImgPreviewStyle}>
-        <SvgIcon
-          component={Package}
-          inheritViewBox
-          alt="Package"
-          style={packageIconStyle}
-        />
-        <Box style={zoomIconBoxStyle}>
-          <SvgIcon
-            component={Zoom}
-            inheritViewBox
-            alt="Zoom Icon"
-            style={{ width: "30px", height: "30px" }}
-          />
-        </Box>
-      </Box>
+        {/* Item Info */}
+        <Stack style={{ display: "flex", flexDirection: "column" }}>
+          <Typography>{data.article.title}</Typography>
+          <Box>
+            <span style={{ color: "gray" }}>by</span>{" "}
+            <Link
+              to={data.article.supplier_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              {data.article.supplier_name}
+            </Link>
+          </Box>
 
-      {/* Item Info */}
-      <Stack style={{ display: "flex", flexDirection: "column" }}>
-        <Typography>{data.article.title}</Typography>
-        <Box>
-          <span style={{ color: "gray" }}>by</span>{" "}
-          <Link
-            to={data.article.supplier_link}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none" }}
+          <Stack>
+            <StarRating rating={data.article.stars} />
+          </Stack>
+
+          <Stack direction="row" alignItems="center">
+            <Typography sx={{ marginTop: "25px" }}>
+              {`${data.article.price} ${data.article.currency}`}
+              <span
+                style={{ color: "gray" }}
+              >{` + ${data.article.transport_costs} ${data.article.currency} shipping`}</span>
+              <br />
+              <span style={{ color: "gray" }}>
+                {"all prices incl. 10% taxes"}
+              </span>
+            </Typography>
+            <SvgIcon
+              component={Discount}
+              inheritViewBox
+              alt="Zoom Icon"
+              style={{ width: "20px", height: "20px", marginLeft: "10px" }}
+            />
+          </Stack>
+
+          <Box
+            style={{ display: "flex", flexDirection: "column", flex: 1 }}
+            ref={targetRef}
           >
-            {data.article.supplier_name}
-          </Link>
-        </Box>
-
-        <Stack>
-          <StarRating rating={data.article.stars} />
+            <Box style={{ marginTop: "auto" }}>
+              {isVisible && <AddToCart />}
+            </Box>
+          </Box>
         </Stack>
-
-        <Stack direction="row" alignItems="center">
-          <Typography sx={{ marginTop: "25px" }}>
-            {`${data.article.price} ${data.article.currency}`}
-            <span
-              style={{ color: "gray" }}
-            >{` + ${data.article.transport_costs} ${data.article.currency} shipping`}</span>
-            <br />
-            <span style={{ color: "gray" }}>
-              {"all prices incl. 10% taxes"}
-            </span>
-          </Typography>
-          <SvgIcon
-            component={Discount}
-            inheritViewBox
-            alt="Zoom Icon"
-            style={{ width: "20px", height: "20px", marginLeft: "10px" }}
-          />
-        </Stack>
-
-        <Box
-          style={{ display: "flex", flexDirection: "column", flex: 1 }}
-          ref={targetRef}
-        >
-          <Box style={{ marginTop: "auto" }}>{isVisible && <AddToCart />}</Box>
-        </Box>
       </Stack>
     </Stack>
   );
