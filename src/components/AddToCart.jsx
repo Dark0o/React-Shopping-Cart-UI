@@ -13,6 +13,14 @@ const Input = styled(TextField)({
   "& input[type=number]": {
     MozAppearance: "textfield",
   },
+  "& .MuiOutlinedInput-root": {
+    "&:hover fieldset": {
+      borderColor: "gray",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "gray",
+    },
+  },
 });
 
 const AddToCart = () => {
@@ -34,7 +42,9 @@ const AddToCart = () => {
         value={quantity}
         onChange={handleQuantityChange}
         InputProps={{
-          style: { height: "40px" },
+          style: {
+            height: "40px",
+          },
         }}
         sx={{ width: "80px", marginRight: "10px" }}
       />
