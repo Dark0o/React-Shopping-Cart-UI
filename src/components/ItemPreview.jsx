@@ -2,9 +2,11 @@ import React, { useRef, useEffect } from "react";
 import SvgIcon from "@mui/material/SvgIcon";
 import Package from "../assets/icons/package.svg";
 import Zoom from "../assets/icons/zoom-in.svg";
+import Discount from "../assets/icons/discount.svg";
 
 import StarFilled from "../assets/icons/star-filled.svg";
 import { Stack, Box, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 import AddToCart from "./AddToCart";
 import { useData } from "../context/DataContext";
@@ -55,7 +57,7 @@ const StarRating = ({ rating }) => {
           key={i}
           component={StarFilled}
           inheritViewBox
-          style={{ width: "30px", height: "30px", color: "gold" }}
+          style={{ width: "25px", height: "25px", color: "gold" }}
         />
       );
     } else {
@@ -65,17 +67,17 @@ const StarRating = ({ rating }) => {
           key={i}
           component={StarFilled}
           inheritViewBox
-          style={{ width: "30px", height: "30px", color: "gray" }}
+          style={{ width: "25px", height: "25px", color: "gray" }}
         />
       );
     }
   }
 
-  return <Box className="star-rating">{stars}</Box>;
+  return <Box sx={{ marginTop: "15px" }}>{stars}</Box>;
 };
 
 const ItemPreview = () => {
-  const { isVisible, setIsVisible } = useData();
+  const { isVisible, setIsVisible, data } = useData();
 
   const targetRef = useRef(null);
 
@@ -145,20 +147,49 @@ const ItemPreview = () => {
       </Box>
 
       {/* Item Info */}
-      <Stack>
-        <Typography>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </Typography>
+      <Stack style={{ display: "flex", flexDirection: "column" }}>
+        <Typography>{data.article.title}</Typography>
         <Box>
-          <Typography>by Conntech GmbH</Typography>
+          <span style={{ color: "gray" }}>by</span>{" "}
+          <Link
+            to={data.article.supplier_link}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
+          >
+            {data.article.supplier_name}
+          </Link>
         </Box>
+
         <Stack>
-          <StarRating rating={3.2} />
+          <StarRating rating={data.article.stars} />
         </Stack>
-        <Typography>
-          2598 EUR + 34,00 EUR shipping <br /> all prices incl. 10% taxes
-        </Typography>
-        <div ref={targetRef}>{isVisible && <AddToCart />}</div>
+
+        <Stack direction="row" alignItems="center">
+          <Typography sx={{ marginTop: "25px" }}>
+            {`${data.article.price} ${data.article.currency}`}
+            <span
+              style={{ color: "gray" }}
+            >{` + ${data.article.transport_costs} ${data.article.currency} shipping`}</span>
+            <br />
+            <span style={{ color: "gray" }}>
+              {"all prices incl. 10% taxes"}
+            </span>
+          </Typography>
+          <SvgIcon
+            component={Discount}
+            inheritViewBox
+            alt="Zoom Icon"
+            style={{ width: "20px", height: "20px", marginLeft: "10px" }}
+          />
+        </Stack>
+
+        <Box
+          style={{ display: "flex", flexDirection: "column", flex: 1 }}
+          ref={targetRef}
+        >
+          <Box style={{ marginTop: "auto" }}>{isVisible && <AddToCart />}</Box>
+        </Box>
       </Stack>
     </Stack>
   );
