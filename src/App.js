@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Stack, Button, Box } from "@mui/material";
 import fav from "./assets/icons/favorite.svg";
 import zoomIcon from "./assets/icons/zoom-in.svg";
 import SvgIcon from "@mui/material/SvgIcon";
