@@ -113,7 +113,11 @@ const ItemPreview = () => {
   }, []); // Run effect only once
 
   return (
-    <Stack direction="row" spacing={2} sx={{ padding: "10px" }}>
+    <Stack
+      direction="row"
+      spacing={2}
+      sx={{ padding: "10px", marginTop: "25px", marginBottom: "20px" }}
+    >
       <Stack direction={isSmallScreen ? "column" : "row"} spacing={1}>
         {/* Preview Img */}
         <Stack spacing={2} direction={isSmallScreen ? "row" : "column"}>
@@ -154,7 +158,13 @@ const ItemPreview = () => {
         </Box>
 
         {/* Item Info */}
-        <Stack style={{ display: "flex", flexDirection: "column" }}>
+        <Stack
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            marginLeft: "15px",
+          }}
+        >
           <Typography>{data.article.title}</Typography>
           <Box>
             <span style={{ color: "gray" }}>by</span>{" "}
