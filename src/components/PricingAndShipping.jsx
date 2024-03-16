@@ -7,7 +7,6 @@ const PricingAndShipping = () => {
   const { data } = useData();
 
   const priceBreaks = Object.entries(data.article.price_breaks);
-  console.log(priceBreaks);
 
   return (
     <Box

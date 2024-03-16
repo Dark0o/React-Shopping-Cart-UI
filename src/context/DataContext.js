@@ -9,7 +9,6 @@ export const DataProvider = ({ children }) => {
 
   const addItemsToCart = (numberOfItems) => {
     setData((prevValue) => {
-      console.log(prevValue.cart);
       return {
         ...prevValue,
         cart: {

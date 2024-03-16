@@ -71,7 +71,6 @@ const CartWithBubble = ({ cartItemCount }) => {
 const Navbar = () => {
   const { data, isVisible } = useData();
 
-  console.log(data);
   return (
     <StyledAppBar>
       <StyledToolbar sx={{ justifyContent: "space-between" }}>

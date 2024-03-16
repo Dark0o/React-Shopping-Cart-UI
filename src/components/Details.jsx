@@ -20,7 +20,6 @@ const Details = () => {
 
   const features = Object.entries(data.article.features);
 
-  console.log(features);
   return (
     <Box
       sx={{
