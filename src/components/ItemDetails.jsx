@@ -11,9 +11,12 @@ const ItemDetails = () => {
   return (
     <Box sx={{ backgroundColor: "#EFEFEF", padding: "15px" }}>
       <Typography sx={{ color: "red" }}>DESCRIPTION</Typography>
-      <Typography sx={{ marginTop: "10px" }}>
-        {data.article.description_long}
-      </Typography>
+      <Box sx={{ width: "80%" }}>
+        <Typography sx={{ marginTop: "10px" }}>
+          {data.article.description_long}
+        </Typography>
+      </Box>
+
       <Stack
         direction="row"
         spacing={2}
