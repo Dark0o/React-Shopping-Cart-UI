@@ -44,7 +44,7 @@ const PricingAndShipping = () => {
       <Box sx={{ width: "60%", marginTop: "10vh" }}>
         <Typography sx={{ color: "gray" }}>Price breaks</Typography>
         {priceBreaks.map(([key, value]) => (
-          <Box key={key}>
+          <Box key={key} sx={{ padding: "5px" }}>
             <Divider />
             <Stack direction="row" justifyContent="space-between">
               <Typography>{`ex ${key} ${data.article.unit}`}</Typography>

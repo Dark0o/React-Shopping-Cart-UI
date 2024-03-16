@@ -64,7 +64,7 @@ const AddToCart = () => {
       <Typography
         style={{ marginRight: "5px", display: "flex", alignItems: "center" }}
       >
-        units
+        {data.article.unit}
       </Typography>
       <Button
         disabled={isDisabled}

@@ -9,7 +9,6 @@ import {
   Divider,
   List,
   ListItem,
-  ListItemText,
   Chip,
 } from "@mui/material";
 import SvgIcon from "@mui/material/SvgIcon";
@@ -36,9 +35,11 @@ const Details = () => {
 
       {/* Features */}
       <Box>
-        <Typography sx={{ color: "grey" }}>Features</Typography>
+        <Typography sx={{ color: "grey", marginTop: "5px" }}>
+          Features
+        </Typography>
         <Box>
-          <ul>
+          <ul style={{ marginBlockStart: 0 }}>
             {features.map(([key, value]) => (
               <li key={key}>
                 <Typography>
@@ -70,7 +71,7 @@ const Details = () => {
                   rel="noopener noreferrer"
                   style={{ textDecoration: "none" }}
                 >
-                  <ListItemText>{attachment.file_label}</ListItemText>
+                  <Typography>{attachment.file_label}</Typography>
                 </Link>
               </ListItem>
             ))}
