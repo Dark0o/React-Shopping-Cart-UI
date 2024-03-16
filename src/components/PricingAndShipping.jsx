@@ -25,29 +25,23 @@ const PricingAndShipping = () => {
       <Box>
         <ul>
           <li>
-            <Typography>
-              <span style={{ color: "gray" }}>{"Minimum order"}:</span>{" "}
-              {`${data.article.minimum_order_quantity} ${data.article.unit}`}
-            </Typography>
+            <span style={{ color: "gray" }}>{"Minimum order"}: </span>
+            {`${data.article.minimum_order_quantity} ${data.article.unit}`}
           </li>
           <li>
-            <Typography>
-              <span style={{ color: "gray" }}>{"Shipping"}:</span>{" "}
-              {`680,96 ${data.article.currency}`}
-            </Typography>
+            <span style={{ color: "gray" }}>{"Shipping"}: </span>
+            {`680,96 ${data.article.currency}`}
           </li>
           <li>
-            <Typography>
-              <span style={{ color: "gray" }}>{"Delivery"}:</span>{" "}
-              {` ${data.article.delivery_time} days`}
-            </Typography>
+            <span style={{ color: "gray" }}>{"Delivery"} :</span>
+            {` ${data.article.delivery_time} days`}
           </li>
         </ul>
       </Box>
 
       {/* Shipping details */}
 
-      <Box sx={{ width: "60%" }}>
+      <Box sx={{ width: "60%", marginTop: "10vh" }}>
         <Typography sx={{ color: "gray" }}>Price breaks</Typography>
         {priceBreaks.map(([key, value]) => (
           <Box key={key}>
