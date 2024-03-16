@@ -1,10 +1,17 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Stack, Box } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Stack,
+  Box,
+  Divider,
+} from "@mui/material";
 import { styled } from "@mui/system";
 import SvgIcon from "@mui/material/SvgIcon";
 import FactsSoft from "../assets/icons/facts-soft.svg";
 import Favorite from "../assets/icons/favorite.svg";
-import Divider from "@mui/material/Divider";
+
 import Cart from "../assets/icons/cart.svg";
 import { useData } from "../context/DataContext";
 

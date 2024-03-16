@@ -2,13 +2,17 @@ import React from "react";
 import { useData } from "../context/DataContext";
 import { Link } from "react-router-dom";
 
-import { Stack, Box, Typography, Divider } from "@mui/material";
+import {
+  Stack,
+  Box,
+  Typography,
+  Divider,
+  List,
+  ListItem,
+  ListItemText,
+  Chip,
+} from "@mui/material";
 import SvgIcon from "@mui/material/SvgIcon";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 
 import Attachment from "../assets/icons/attachment.svg";
 
@@ -25,7 +29,7 @@ const Details = () => {
         padding: "15px",
         backgroundColor: "white",
         width: "500px",
-        height: "500px",
+        height: "auto",
       }}
     >
       <Typography sx={{ color: "red" }}>DETAILS</Typography>
@@ -63,7 +67,9 @@ const Details = () => {
 
                 <Link
                   to={attachment.file_link}
-                  // style={{ textDecoration: "none", color: "inherit" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
                 >
                   <ListItemText>{attachment.file_label}</ListItemText>
                 </Link>
@@ -71,6 +77,16 @@ const Details = () => {
             ))}
           </List>
         </Box>
+      </Box>
+
+      {/* Keywords */}
+      <Box>
+        <Typography sx={{ color: "grey" }}>Keywords</Typography>
+        <Stack direction="row" spacing={2} sx={{ padding: "10px" }}>
+          {data.article.keywords.map((keyword, index) => (
+            <Chip key={index} label={keyword} />
+          ))}
+        </Stack>
       </Box>
     </Box>
   );
