@@ -7,6 +7,7 @@ import SvgIcon from "@mui/material/SvgIcon";
 import data from "./data/data.json";
 
 import CssBaseline from "@mui/material/CssBaseline";
+import { DataProvider } from "./context/DataContext";
 
 import Navbar from "./components/Navbar";
 import ItemPreview from "./components/ItemPreview";
@@ -38,15 +39,17 @@ const App = () => {
   };
 
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Navbar title={data.article.title} />
-      <ItemPreview />
-      <ImageWithZoomIcon />
-      <div>
-        Testing heroku deploy <Button>Test Button</Button>
-      </div>
-    </React.Fragment>
+    <DataProvider>
+      <React.Fragment>
+        <CssBaseline />
+        <Navbar />
+        <ItemPreview />
+        <ImageWithZoomIcon />
+        <div>
+          Testing heroku deploy <Button>Test Button</Button>
+        </div>
+      </React.Fragment>
+    </DataProvider>
   );
 };
 

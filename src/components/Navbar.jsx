@@ -6,6 +6,7 @@ import FactsSoft from "../assets/icons/facts-soft.svg";
 import Favorite from "../assets/icons/favorite.svg";
 import Divider from "@mui/material/Divider";
 import Cart from "../assets/icons/cart.svg";
+import { useData } from "../context/DataContext";
 
 const gray = "#E8E8E8";
 const gray2 = "#A7A7A7";
@@ -61,12 +62,14 @@ const CartWithBubble = () => {
   );
 };
 
-const Navbar = ({ title }) => {
+const Navbar = () => {
+  const { data } = useData();
+  console.log(data);
   return (
     <StyledAppBar>
       <StyledToolbar sx={{ justifyContent: "space-between" }}>
         <Typography variant="h7" sx={{ color: "red" }}>
-          {title}
+          {data.article.title}
         </Typography>
 
         <Stack direction="row" spacing={1}>
