@@ -18,7 +18,7 @@ const smallImgPreviewStyle = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  border: "1px solid gray",
+  border: "1px solid #E8E8E8",
   padding: "10px",
   height: "100px",
   width: "100px",
@@ -27,7 +27,7 @@ const smallImgPreviewStyle = {
 const largeImgPreviewStyle = {
   position: "relative",
   display: "inline-block",
-  border: "1px solid gray",
+  border: "1px solid #E8E8E8",
   padding: "10px",
   height: "400px",
   width: "400px",
@@ -40,6 +40,7 @@ const packageIconStyle = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
+  color: "#A7A7A7",
 };
 const zoomIconBoxStyle = {
   position: "absolute",
@@ -126,7 +127,7 @@ const ItemPreview = () => {
               component={Package}
               inheritViewBox
               alt="Package"
-              style={{ width: "50px", height: "50px" }}
+              style={{ width: "50px", height: "50px", color: "#E8E8E8" }}
             />
           </Box>
           <Box style={smallImgPreviewStyle}>
@@ -134,7 +135,7 @@ const ItemPreview = () => {
               component={Package}
               inheritViewBox
               alt="Package"
-              style={{ width: "50px", height: "50px" }}
+              style={{ width: "50px", height: "50px", color: "#E8E8E8" }}
             />
           </Box>
         </Stack>
@@ -152,7 +153,7 @@ const ItemPreview = () => {
               component={Zoom}
               inheritViewBox
               alt="Zoom Icon"
-              style={{ width: "30px", height: "30px" }}
+              style={{ width: "30px", height: "30px", color: "#A7A7A7" }}
             />
           </Box>
         </Box>
