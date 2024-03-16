@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import SvgIcon from "@mui/material/SvgIcon";
 import Package from "../assets/icons/package.svg";
 import Zoom from "../assets/icons/zoom-in.svg";
@@ -7,6 +7,7 @@ import StarFilled from "../assets/icons/star-filled.svg";
 import { Stack, Box, Typography } from "@mui/material";
 
 import AddToCart from "./AddToCart";
+import { useData } from "../context/DataContext";
 
 const smallImgPreviewStyle = {
   display: "flex",
@@ -74,6 +75,35 @@ const StarRating = ({ rating }) => {
 };
 
 const ItemPreview = () => {
+  const { isVisible, setIsVisible } = useData();
+
+  const targetRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Update visibility state based on the isIntersecting property of the entry
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        root: null, // Use the viewport as the root
+        rootMargin: "0px", // No margin around the viewport
+        threshold: 0.5, // Trigger when at least 50% of the target is visible
+      }
+    );
+
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
+
+    // Cleanup function
+    return () => {
+      if (targetRef.current) {
+        observer.unobserve(targetRef.current);
+      }
+    };
+  }, []); // Run effect only once
+
   return (
     <Stack direction="row" spacing={2} sx={{ padding: "10px" }}>
       {/* Preview Img */}
@@ -119,20 +149,16 @@ const ItemPreview = () => {
         <Typography>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </Typography>
-
         <Box>
           <Typography>by Conntech GmbH</Typography>
         </Box>
-
         <Stack>
           <StarRating rating={3.2} />
         </Stack>
-
         <Typography>
           2598 EUR + 34,00 EUR shipping <br /> all prices incl. 10% taxes
         </Typography>
-
-        <AddToCart />
+        <div ref={targetRef}>{isVisible && <AddToCart />}</div>
       </Stack>
     </Stack>
   );
