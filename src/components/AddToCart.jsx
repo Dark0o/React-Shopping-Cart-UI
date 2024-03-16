@@ -23,7 +23,6 @@ const AddToCart = () => {
   };
 
   const handleAddToCart = () => {
-    // Implement your add to cart logic here
     console.log(`Added ${quantity} items to cart`);
   };
 
@@ -53,8 +52,8 @@ const AddToCart = () => {
           backgroundColor: "red",
           boxShadow: "none",
           "&:hover": {
-            backgroundColor: "#ff3333", // Hover background color
-            boxShadow: "none", // Remove box-shadow on hover
+            backgroundColor: "#ff3333",
+            boxShadow: "none",
           },
         }}
       >

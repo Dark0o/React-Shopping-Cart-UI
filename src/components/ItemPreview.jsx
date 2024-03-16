@@ -54,7 +54,7 @@ const StarRating = ({ rating }) => {
           key={i}
           component={StarFilled}
           inheritViewBox
-          style={{ width: "50px", height: "50px", color: "gold" }}
+          style={{ width: "30px", height: "30px", color: "gold" }}
         />
       );
     } else {
@@ -64,7 +64,7 @@ const StarRating = ({ rating }) => {
           key={i}
           component={StarFilled}
           inheritViewBox
-          style={{ width: "50px", height: "50px", color: "gray" }}
+          style={{ width: "30px", height: "30px", color: "gray" }}
         />
       );
     }
