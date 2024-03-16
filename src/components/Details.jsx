@@ -25,7 +25,6 @@ const Details = () => {
   return (
     <Box
       sx={{
-        marginTop: "15px",
         padding: "15px",
         backgroundColor: "white",
         width: "500px",
