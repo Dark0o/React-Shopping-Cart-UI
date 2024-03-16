@@ -13,6 +13,14 @@ import Navbar from "./components/Navbar";
 import ItemPreview from "./components/ItemPreview";
 import ItemDetails from "./components/ItemDetails";
 
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  typography: {
+    fontSize: "16px",
+  },
+});
+
 const App = () => {
   console.log(zoomIcon);
   console.log(data);
@@ -40,14 +48,16 @@ const App = () => {
   };
 
   return (
-    <DataProvider>
-      <React.Fragment>
-        <CssBaseline />
-        <Navbar />
-        <ItemPreview />
-        <ItemDetails />
-      </React.Fragment>
-    </DataProvider>
+    <ThemeProvider theme={theme}>
+      <DataProvider>
+        <React.Fragment>
+          <CssBaseline />
+          <Navbar />
+          <ItemPreview />
+          <ItemDetails />
+        </React.Fragment>
+      </DataProvider>
+    </ThemeProvider>
   );
 };
 
