@@ -31,8 +31,8 @@ const largeImgPreviewStyle = {
   textAlign: "center",
 };
 const packageIconStyle = {
-  width: "200px",
-  height: "200px",
+  width: "70%",
+  height: "auto",
   position: "absolute",
   top: "50%",
   left: "50%",
