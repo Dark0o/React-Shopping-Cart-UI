@@ -29,7 +29,7 @@ const Details = () => {
         height: "auto",
       }}
     >
-      <Typography sx={{ color: "red" }}>DETAILS</Typography>
+      <Typography sx={{ color: "#DD4C40" }}>DETAILS</Typography>
       <Divider />
 
       {/* Features */}

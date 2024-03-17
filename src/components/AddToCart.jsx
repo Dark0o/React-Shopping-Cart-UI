@@ -73,7 +73,7 @@ const AddToCart = () => {
         startIcon={<SvgIcon component={Add} inheritViewBox alt="Add Icon" />}
         sx={{
           height: "40px",
-          backgroundColor: "red",
+          backgroundColor: "#DD4C40",
           boxShadow: "none",
           "&:hover": {
             backgroundColor: "#ff3333",

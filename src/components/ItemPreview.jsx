@@ -119,7 +119,7 @@ const ItemPreview = () => {
       spacing={2}
       sx={{ padding: "10px", marginTop: "25px", marginBottom: "20px" }}
     >
-      <Stack direction={isSmallScreen ? "column" : "row"} spacing={1}>
+      <Stack direction={isSmallScreen ? "column" : "row"} spacing={2}>
         {/* Preview Img */}
         <Stack spacing={2} direction={isSmallScreen ? "row" : "column"}>
           <Box style={smallImgPreviewStyle}>

@@ -17,7 +17,7 @@ const ItemDetails = () => {
 
   return (
     <Box sx={{ backgroundColor: "#EFEFEF", padding: "15px" }}>
-      <Typography sx={{ color: "red", marginTop: "15px" }}>
+      <Typography sx={{ color: "#DD4C40", marginTop: "15px" }}>
         DESCRIPTION
       </Typography>
       <Box sx={{ width: "80%", marginTop: "10px", marginBottom: "25px" }}>

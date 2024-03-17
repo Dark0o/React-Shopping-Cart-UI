@@ -42,7 +42,7 @@ const cartBubbleStyle = {
   position: "absolute",
   top: 0,
   right: 0,
-  backgroundColor: "red",
+  backgroundColor: "#DD4C40",
   color: "white",
   borderRadius: "50%",
   width: "14px",
@@ -74,7 +74,7 @@ const Navbar = () => {
   return (
     <StyledAppBar>
       <StyledToolbar sx={{ justifyContent: "space-between" }}>
-        <Typography variant="h7" sx={{ color: "red" }}>
+        <Typography variant="h7" sx={{ color: "#DD4C40" }}>
           {data.article.title}
         </Typography>
 

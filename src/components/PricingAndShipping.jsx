@@ -17,7 +17,7 @@ const PricingAndShipping = () => {
         height: "auto",
       }}
     >
-      <Typography sx={{ color: "red" }}>PRICING & SHIPPING</Typography>
+      <Typography sx={{ color: "#DD4C40" }}>PRICING & SHIPPING</Typography>
       <Divider />
 
       {/* Shipping details */}
