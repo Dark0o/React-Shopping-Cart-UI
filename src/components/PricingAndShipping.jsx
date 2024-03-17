@@ -3,7 +3,7 @@ import { useData } from "../context/DataContext";
 
 import { Stack, Box, Typography, Divider } from "@mui/material";
 
-const PricingAndShipping = () => {
+const PricingAndShipping = ({ isSmallScreen }) => {
   const { data } = useData();
 
   const priceBreaks = Object.entries(data.article.price_breaks);
@@ -13,7 +13,7 @@ const PricingAndShipping = () => {
       sx={{
         padding: "15px",
         backgroundColor: "white",
-        width: "500px",
+        width: isSmallScreen ? "100%" : "500px",
         height: "auto",
       }}
     >

@@ -31,8 +31,8 @@ const ItemDetails = () => {
           marginTop: "15px",
         }}
       >
-        <Details />
-        <PricingAndShipping />
+        <Details isSmallScreen={isSmallScreen} />
+        <PricingAndShipping isSmallScreen={isSmallScreen} />
       </Stack>
     </Box>
   );

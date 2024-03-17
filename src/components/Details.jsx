@@ -15,7 +15,7 @@ import SvgIcon from "@mui/material/SvgIcon";
 
 import Attachment from "../assets/icons/attachment.svg";
 
-const Details = () => {
+const Details = ({ isSmallScreen }) => {
   const { data } = useData();
 
   const features = Object.entries(data.article.features);
@@ -25,7 +25,7 @@ const Details = () => {
       sx={{
         padding: "15px",
         backgroundColor: "white",
-        width: "500px",
+        width: isSmallScreen ? "100%" : "500px",
         height: "auto",
       }}
     >
