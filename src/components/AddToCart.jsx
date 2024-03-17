@@ -24,7 +24,7 @@ const Input = styled(TextField)({
   },
 });
 
-const AddToCart = () => {
+const AddToCart = ({ buttonText = "Add to cart" }) => {
   const { data, addItemsToCart } = useData();
   const [isDisabled, setIsDisabled] = useState(false);
 
@@ -81,7 +81,7 @@ const AddToCart = () => {
           },
         }}
       >
-        Add to Cart
+        {buttonText}
       </Button>
     </Box>
   );

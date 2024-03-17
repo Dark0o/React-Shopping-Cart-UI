@@ -16,6 +16,9 @@ import Cart from "../assets/icons/cart.svg";
 import { useData } from "../context/DataContext";
 import AddToCart from "./AddToCart";
 
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 const gray = "#E8E8E8";
 const gray2 = "#A7A7A7";
 
@@ -71,15 +74,27 @@ const CartWithBubble = ({ cartItemCount }) => {
 const Navbar = () => {
   const { data, isVisible } = useData();
 
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const buttonText = isSmallScreen ? "Add" : "Add to cart";
+
   return (
     <StyledAppBar>
-      <StyledToolbar sx={{ justifyContent: "space-between" }}>
-        <Typography variant="h7" sx={{ color: "#DD4C40" }}>
-          {data.article.title}
-        </Typography>
+      <StyledToolbar
+        sx={{
+          justifyContent: isSmallScreen ? "flex-end" : "space-between",
+        }}
+      >
+        {!isSmallScreen ||
+          (isSmallScreen && isVisible && (
+            <Typography variant="h7" sx={{ color: "#DD4C40" }}>
+              {data.article.title}
+            </Typography>
+          ))}
 
         <Stack direction="row" spacing={1} alignItems="center">
-          {!isVisible && <AddToCart />}
+          {!isVisible && <AddToCart buttonText={buttonText} />}
           <SvgIcon
             component={Favorite}
             inheritViewBox
