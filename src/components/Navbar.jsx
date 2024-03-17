@@ -86,12 +86,11 @@ const Navbar = () => {
           justifyContent: isSmallScreen ? "flex-end" : "space-between",
         }}
       >
-        {!isSmallScreen ||
-          (isSmallScreen && isVisible && (
-            <Typography variant="h7" sx={{ color: "#DD4C40" }}>
-              {data.article.title}
-            </Typography>
-          ))}
+        {(isSmallScreen && isVisible) || !isSmallScreen ? (
+          <Typography variant="h7" sx={{ color: "#DD4C40" }}>
+            {data.article.title}
+          </Typography>
+        ) : null}
 
         <Stack direction="row" spacing={1} alignItems="center">
           {!isVisible && <AddToCart buttonText={buttonText} />}
