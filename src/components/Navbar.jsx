@@ -27,8 +27,7 @@ const StyledAppBar = styled(AppBar)({
   position: "sticky",
   backgroundColor: "#ffffff",
   color: "#000000",
-  //zIndex: 1000,
-  boxShadow: "none", // Remove the default box shadow
+  boxShadow: "none",
 });
 
 const StyledToolbar = styled(Toolbar)({
@@ -71,7 +70,7 @@ const CartWithBubble = ({ cartItemCount }) => {
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ scrolled }) => {
   const { data, isVisible } = useData();
 
   const theme = useTheme();
@@ -84,6 +83,7 @@ const Navbar = () => {
       <StyledToolbar
         sx={{
           justifyContent: isSmallScreen ? "flex-end" : "space-between",
+          boxShadow: scrolled ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
         }}
       >
         {(isSmallScreen && isVisible) || !isSmallScreen ? (
